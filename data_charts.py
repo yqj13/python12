@@ -17,6 +17,8 @@ import streamlit_echarts
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud as WC
 import seaborn as sns
+from matplotlib.font_manager import FontProperties
+
 import pandas as pd
 import plotly.express as px
 
