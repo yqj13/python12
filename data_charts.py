@@ -17,11 +17,11 @@ import streamlit_echarts
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud as WC
 import seaborn as sns
-from matplotlib.font_manager import FontProperties
+
 
 import pandas as pd
 import plotly.express as px
-
+from matplotlib.font_manager import FontProperties, fontManager
 
 @st.dialog("词频统计可视化")
 def vote():
@@ -79,6 +79,8 @@ def draw_chart(url):
             df = pd.DataFrame(list(top_words.items()), columns=['Word', 'Frequency'])
             # 设置全局字体为支持中文的字体
             font_path = './simsun.ttc'
+            # 手动添加字体到 Matplotlib 字体管理器
+            fontManager.addfont(font_path)
             # 加载字体
             prop = FontProperties(fname=font_path)
 
