@@ -75,10 +75,13 @@ def draw_chart(url):
         elif chart_type == "Bar Chart":
             # 使用 Seaborn 绘制条形图
             df = pd.DataFrame(list(top_words.items()), columns=['Word', 'Frequency'])
-            # 设置全局字体为支持中文的字体，比如SimHei（黑体）
-            plt.rcParams['font.sans-serif'] = ['SimHei']  # 使用黑体
-            # 或者如果你想要使用宋体，可以如下设置：
-            # plt.rcParams['font.sans-serif'] = ['simsun']
+            # 设置全局字体为支持中文的字体
+            font_path = './simsun.ttc'
+            # 加载字体
+            prop = FontProperties(fname=font_path)
+
+            # 设置全局字体为支持中文的字体
+            plt.rcParams['font.sans-serif'] = [prop.get_name()]
 
             # 确保负号在matplotlib中能正确显示
             plt.rcParams['axes.unicode_minus'] = False
